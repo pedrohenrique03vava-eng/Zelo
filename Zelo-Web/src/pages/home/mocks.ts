@@ -19,7 +19,7 @@ export const produtosMock: Produto[] = [
     nome: "Shampoo Queratina 1L",
     quantidadeAtual: 150,
     quantidadeMinima: 200,
-  }, // Alerta!
+  }, 
   {
     id: "2",
     nome: "Creme de Hidratação 1kg",
@@ -52,7 +52,7 @@ export const agendamentosHojeMock: Agendamento[] = [
   },
   {
     id: "104",
-    clienteNome: "Vitoria Verne",
+    clienteNome: "Vitoria",
     servico: "Progressiva",
     valor: 150,
     horario: "14:30",

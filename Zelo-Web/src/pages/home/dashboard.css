@@ -18,10 +18,11 @@ body {
 
 /* 2. ESTRUTURA PRINCIPAL */
 #father {
+  position: relative; /* Mantém o botão de login ancorado no topo correto */
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px; /* Aumentado para dar mais espaço para as linhas */
 }
 
 #father h1 {
@@ -47,9 +48,9 @@ body {
   margin-bottom: 20px;
 }
 
-/* CARDÃO EMBALADOR BRANCO */
+/* 3. CARD CINZA PRINCIPAL */
 .cardao {
-  background-color: #ffffff;
+  background-color: #e0e0e0;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 32px;
@@ -58,50 +59,49 @@ body {
   margin-bottom: 30px;
 }
 
-/* ORGANIZADOR DE SEÇÕES (LADO A LADO) */
-#nome {
-  display: flex;
-  flex-direction: row; /* Mantém os dois blocos cinzas lado a lado */
-  gap: 24px;
-  width: 100%;
-  flex-wrap: wrap; /* Permite que o bloco de produtos desça caso a tela seja muito pequena */
+.titulo-cardao {
+  font-size: 16px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
 }
 
-/* 3. BLOCOS CINZAS INTERNOS */
+/* 4. CONTAINER DAS SEÇÕES (UM EM CIMA E OUTRO EM BAIXO) */
+#nome {
+  display: flex;
+  flex-direction: column; /* Mudado de row para column para empilhar as seções */
+  gap: 32px; /* Aumentado o espaço entre a seção de cima e a de baixo */
+  width: 100%;
+}
+
+/* 5. SEÇÕES INTERNAS (OCUPANDO 100% DA LARGURA) */
 .sessao {
   display: flex;
-  flex-direction: column; /* CORREÇÃO: Mantém título acima da lista de clientes */
+  flex-direction: column; 
   gap: 16px;
   padding: 24px;
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
-  flex: 1;
-  min-width: 320px; /* Garante que o card cinza não seja esmagado demais */
+  width: 100%; /* Força cada seção a usar a largura total do cardão */
 }
 
-.sessao h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #0f172a;
-  margin-bottom: 4px;
-}
-
-/* 4. AS LISTAS HORIZONTAIS (MOCK MAPS EM ROW) */
+/* 6. LISTAS DE ITENS (DISPOSTOS EM LINHA) */
 .sessao ul {
   list-style: none;
   padding: 16px 20px;
   background-color: #ffffff;
   border-radius: 10px;
   border: 1px solid #edf2f7;
-
   display: flex;
-  flex-direction: row; /* Deita os dados de texto e os botões */
-  justify-content: space-between;
+  flex-direction: row; /* Mantém os dados e botões na horizontal */
   align-items: center;
-  gap: 12px;
+  justify-content: flex-start;
+  gap: 24px; /* Espaço uniforme entre os textos na linha */
   width: 100%;
-  flex-wrap: wrap; /* CORREÇÃO DO BUG: Caso falte espaço para os botões, os textos quebram em bloco */
+  flex-wrap: wrap; 
   transition: border-color 0.2s ease;
 }
 
@@ -109,27 +109,35 @@ body {
   border-color: #cbd5e1;
 }
 
-/* TEXTOS DENTRO DO CARD HORIZONTAL */
 .sessao ul li {
   font-size: 13px;
   color: #64748b;
-  white-space: normal; /* CORREÇÃO DO BUG: Permite a quebra de linha se faltar espaço */
-  word-break: break-word;
 }
 
-/* Destaca o primeiro elemento da linha (O Nome) */
-.sessao ul li:first-child {
-  font-weight: 600;
+/* Destaque para os nomes */
+.sessao ul li strong {
   color: #0f172a;
-  font-size: 14px;
+  font-weight: 600;
 }
 
-/* 5. ALINHAMENTO DOS BOTÕES (TRAVADOS À DIREITA) */
-.sessao ul button:first-of-type {
-  margin-left: auto; /* Empurra o grupo de botões totalmente para a extremidade direita */
+/* Alinhamento dos botões à direita na linha */
+.sessao ul .concluido {
+  margin-left: auto; /* Empurra o bloco de botões para o canto direito da linha */
 }
 
-/* 6. CLASSES ESTILIZADAS DOS BOTÕES */
+
+/* Destaque para os nomes */
+.sessao ul li strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* Empurra os botões da lista para a ponta direita */
+.sessao ul .concluido {
+  margin-left: auto;
+}
+
+/* 7. BOTÕES DE AÇÃO */
 .concluido,
 .remove {
   font-family: "Poppins", sans-serif;
@@ -138,12 +146,10 @@ body {
   color: #ffffff;
   border: none;
   border-radius: 6px;
-  padding: 8px 16px;
+  padding: 8px 14px;
   cursor: pointer;
   white-space: nowrap;
-  transition:
-    background-color 0.2s ease,
-    transform 0.1s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .concluido {
@@ -152,7 +158,6 @@ body {
 
 .concluido:hover {
   background-color: #098a51;
-  cursor: pointer;
 }
 
 .remove {
@@ -161,10 +166,54 @@ body {
 
 .remove:hover {
   background-color: #8a0909;
-  cursor: pointer;
 }
 
 .concluido:active,
 .remove:active {
   transform: scale(0.98);
+}
+
+/* 8. BOTÃO LOGIN (CANTO SUPERIOR DIREITO) */
+#button-login {
+  position: absolute;
+  top: -40px;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #28a745; 
+  border: none;
+  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#button-login:hover {
+  background-color: #218838; 
+}
+
+#button-login:active {
+  transform: scale(0.95);
+}
+
+#button-login img {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  object-fit: contain;
+  filter: brightness(0) invert(1); 
+}
+
+/* 9. SEÇÃO DE ALERTAS */
+.alertas-container {
+  margin-top: 20px;
+}
+.alertas-container h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #a30b0b;
 }

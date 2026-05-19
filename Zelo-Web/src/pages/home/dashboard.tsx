@@ -1,10 +1,12 @@
 import "./dashboard.css";
 import { agendamentosHojeMock, produtosMock } from "./mocks";
+import login from "../../assets/download-removebg-preview (1).png"
 function App() {
   return (
     <div id="father">
       <h1>Zelo</h1>
       <small>Cuidado nunca e de mais.</small>
+      <button id="button-login"><img src={login} alt="" /></button>
       <div>
         <h2>Agenda Diaria {}</h2>
       </div>
@@ -27,7 +29,6 @@ function App() {
               );
             })}
           </section>
-          <section>
             <section className="sessao">
               <h3>Produtos</h3>
               {produtosMock.map((produto) => {
@@ -40,10 +41,14 @@ function App() {
                 );
               })}
             </section>
-          </section>
         </div>
       </div>
-      <div></div>
+      <div>
+        <div>
+          <h3>Alertas!</h3>
+        </div>
+  </div>
+
     </div>
   );
 }
