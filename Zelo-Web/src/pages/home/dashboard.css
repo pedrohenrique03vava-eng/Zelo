@@ -1,0 +1,170 @@
+/* 1. RESET INTEGRAL */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8fafc;
+  color: #334155;
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+/* 2. ESTRUTURA PRINCIPAL */
+#father {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+}
+
+#father h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0ba360;
+  letter-spacing: -0.5px;
+}
+
+#father small {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+
+#father h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+/* CARDÃO EMBALADOR BRANCO */
+.cardao {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+  margin-bottom: 30px;
+}
+
+/* ORGANIZADOR DE SEÇÕES (LADO A LADO) */
+#nome {
+  display: flex;
+  flex-direction: row; /* Mantém os dois blocos cinzas lado a lado */
+  gap: 24px;
+  width: 100%;
+  flex-wrap: wrap; /* Permite que o bloco de produtos desça caso a tela seja muito pequena */
+}
+
+/* 3. BLOCOS CINZAS INTERNOS */
+.sessao {
+  display: flex;
+  flex-direction: column; /* CORREÇÃO: Mantém título acima da lista de clientes */
+  gap: 16px;
+  padding: 24px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  flex: 1;
+  min-width: 320px; /* Garante que o card cinza não seja esmagado demais */
+}
+
+.sessao h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+/* 4. AS LISTAS HORIZONTAIS (MOCK MAPS EM ROW) */
+.sessao ul {
+  list-style: none;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #edf2f7;
+
+  display: flex;
+  flex-direction: row; /* Deita os dados de texto e os botões */
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  flex-wrap: wrap; /* CORREÇÃO DO BUG: Caso falte espaço para os botões, os textos quebram em bloco */
+  transition: border-color 0.2s ease;
+}
+
+.sessao ul:hover {
+  border-color: #cbd5e1;
+}
+
+/* TEXTOS DENTRO DO CARD HORIZONTAL */
+.sessao ul li {
+  font-size: 13px;
+  color: #64748b;
+  white-space: normal; /* CORREÇÃO DO BUG: Permite a quebra de linha se faltar espaço */
+  word-break: break-word;
+}
+
+/* Destaca o primeiro elemento da linha (O Nome) */
+.sessao ul li:first-child {
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 14px;
+}
+
+/* 5. ALINHAMENTO DOS BOTÕES (TRAVADOS À DIREITA) */
+.sessao ul button:first-of-type {
+  margin-left: auto; /* Empurra o grupo de botões totalmente para a extremidade direita */
+}
+
+/* 6. CLASSES ESTILIZADAS DOS BOTÕES */
+.concluido,
+.remove {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.concluido {
+  background-color: #0ba360;
+}
+
+.concluido:hover {
+  background-color: #098a51;
+  cursor: pointer;
+}
+
+.remove {
+  background-color: #a30b0b;
+}
+
+.remove:hover {
+  background-color: #8a0909;
+  cursor: pointer;
+}
+
+.concluido:active,
+.remove:active {
+  transform: scale(0.98);
+}
