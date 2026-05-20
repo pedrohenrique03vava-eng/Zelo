@@ -1,12 +1,16 @@
 import "./dashboard.css";
 import { agendamentosHojeMock, produtosMock } from "./mocks";
 import login from "../../assets/download-removebg-preview (1).png"
+import { useNavigate } from "react-router-dom";
 function App() {
+  const navigate = useNavigate()
   return (
     <div id="father">
       <h1>Zelo</h1>
       <small>Cuidado nunca e de mais.</small>
-      <button id="button-login"><img src={login} alt="" /></button>
+      <button id="button-login" onClick={() => navigate("/perfil")}><img src={login} alt="" />
+      
+      </button>
       <div>
         <h2>Agenda Diaria {}</h2>
       </div>
