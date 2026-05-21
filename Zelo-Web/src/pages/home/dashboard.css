@@ -1,189 +1,158 @@
-/* ==========================================================================
-   3. CARD PRINCIPAL (DASHBOARD)
-   ========================================================================== */
-.cardao {
-  background-color: #ffffff; /* Mudado de cinza escuro para branco para contrastar com o fundo da página */
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 32px;
-  width: 100%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  margin-bottom: 30px;
-}
+ .cardao {
+    background-color: #ffffff; 
+    border: 1px solid #f1f5f9; 
+    border-radius: 20px; 
+    padding: 36px;
+    width: 100%;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02), 
+                0 8px 10px -6px rgba(0, 0, 0, 0.02); 
+    margin-bottom: 30px;
+    box-sizing: border-box;
+  }
+  
+  .titulo-cardao {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a; 
+    letter-spacing: -0.5px;
+    margin-top: 0;
+    margin-bottom: 28px;
+  }
+  
 
-.titulo-cardao {
-  font-size: 18px;
-  font-weight: 700;
-  color: #0f172a;
-  text-transform: none; /* Removido uppercase para um visual mais moderno */
-  letter-spacing: -0.2px;
-  margin-bottom: 24px;
-}
+  .sessao {
+    display: flex;
+    flex-direction: column; 
+    gap: 16px;
+    padding: 28px;
+    background-color: #f8fafc; 
+    border: 1px solid #e2e8f0; 
+    border-radius: 16px;
+    width: 100%; 
+    box-sizing: border-box;
+    
+  }
+  
+  .sessao h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #475569; 
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+  .agendamento-lista,
+  .produto-lista {
+    list-style: none;
+    margin: 0;
+    padding: 20px 24px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column; 
+    gap: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-/* Substitui o antigo #nome por um Grid Responsivo (Lado a Lado) */
-.dashboard-content-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 24px;
-  width: 100%;
-}
+  .agendamento-lista:hover,
+  .produto-lista:hover {
+    border-color: #cbd5e1; 
+    box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.05);
+  }
+  
 
-/* ==========================================================================
-   4. SEÇÕES INTERNAS (AGENDAMENTOS E PRODUTOS)
-   ========================================================================== */
-.sessao {
-  display: flex;
-  flex-direction: column; 
-  gap: 16px;
-  padding: 24px;
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  width: 100%; 
-}
+  .sessao ul li {
+    font-size: 14px;
+    color: #64748b; 
+    line-height: 1.5;
+  }
+  
+  .sessao ul li strong {
+    color: #1e293b; 
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  
 
-.sessao h3 {
-  font-size: 15px;
-  font-weight: 600;
-  color: #475569;
-  margin-bottom: 4px;
-}
+  @media (min-width: 768px) {
+    .agendamento-lista {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
 
-/* Configuração das Listas (Agendamento e Produtos) */
-.agendamento-lista,
-.produto-lista {
-  list-style: none;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  border: 1px solid #edf2f7;
-  display: flex;
-  flex-direction: column; /* Organiza os dados em coluna para telas menores */
-  gap: 12px;
-  width: 100%;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Em telas maiores, os dados do agendamento voltam a ficar na horizontal */
-@media (min-width: 768px) {
-  .agendamento-lista {
-    flex-direction: row;
-    flex-wrap: wrap;
+  li.action-buttons {
+    display: flex;
+    gap: 10px;
     align-items: center;
-    justify-content: space-between;
   }
-}
-
-.agendamento-lista:hover,
-.produto-lista:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.sessao ul li {
-  font-size: 13.5px;
-  color: #64748b;
-}
-
-.sessao ul li strong {
-  color: #334155;
-  font-weight: 500;
-}
-
-/* ==========================================================================
-   5. BOTÕES DE AÇÃO E CONTAINER
-   ========================================================================== */
-.action-buttons {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-/* Se estiver em modo horizontal (desktop), empurra os botões para a extrema direita */
-@media (min-width: 768px) {
-  .action-buttons {
-    margin-left: auto;
+  
+  @media (min-width: 768px) {
+    li.action-buttons {
+      margin-left: auto;
+    }
   }
-}
+  
+  .concluido,
+  .remove {
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+  }
+  
 
-.concluido,
-.remove {
-  font-family: "Poppins", sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  padding: 8px 14px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-}
+  .concluido {
+    background-color: #10b981; 
+  }
+  
+  .concluido:hover {
+    background-color: #059669;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+  }
+  
 
-.concluido {
-  background-color: #10b981; /* Atualizado para o tom de verde moderno (Emerald) */
-}
+  .remove {
+    background-color: #ef4444; 
+  }
+  
+  .remove:hover {
+    background-color: #dc2626;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+  }
+  
 
-.concluido:hover {
-  background-color: #059669;
-}
+  .concluido:active,
+  .remove:active {
+    transform: scale(0.96);
+  }
 
-.remove {
-  background-color: #ef4444; /* Atualizado para o tom de vermelho moderno (Rose) */
-}
-
-.remove:hover {
-  background-color: #dc2626;
-}
-
-.concluido:active,
-.remove:active {
-  transform: scale(0.98);
-}
-
-/* ==========================================================================
-   6. COMPONENTES EXTRA (LOGIN & ALERTAS)
-   ========================================================================== */
-#button-login {
-  position: absolute;
-  top: -40px;
-  right: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #10b981; 
-  border: none;
-  border-radius: 8px;
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#button-login:hover {
-  background-color: #059669; 
-}
-
-#button-login:active {
-  transform: scale(0.95);
-}
-
-#button-login img {
-  width: 22px !important;
-  height: 22px !important;
-  min-width: 22px !important;
-  min-height: 22px !important;
-  object-fit: contain;
-  filter: brightness(0) invert(1); 
-}
-
-.alertas-container {
-  margin-top: 20px;
-}
-
-.alertas-container h3 {
-  font-size: 16px;
-  font-weight: 700;
-  color: #ef4444;
-}
+  .alertas-container {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #fef2f2; 
+    border: 1px solid #fee2e2;
+    border-radius: 12px;
+  }
+  
+  .alertas-container h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ef4444;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
