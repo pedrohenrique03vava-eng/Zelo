@@ -11,7 +11,7 @@ export default function Login() {
         <div className="panel-left">
           <h2>Bem - vindo de volta</h2>
           <p>Acesse sua conta agora</p>
-          <button onClick={() => navigate("/")} className="btn-outline">
+          <button onClick={() => navigate("/main")} className="btn-outline">
             Entrar
           </button>
         </div>

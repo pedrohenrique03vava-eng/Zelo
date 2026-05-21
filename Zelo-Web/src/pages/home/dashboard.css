@@ -1,80 +1,36 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: "Poppins", sans-serif;
-  background-color: #f8fafc;
-  color: #334155;
-  min-height: 100vh;
-  padding: 60px 20px;
-}
-
-
-#father {
-  position: relative; 
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1200px; 
-}
-
-#father h1 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #0ba360;
-  letter-spacing: -0.5px;
-}
-
-#father small {
-  font-size: 13px;
-  color: #64748b;
-  margin-bottom: 32px;
-  font-weight: 500;
-}
-
-#father h2 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #475569;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 20px;
-}
-
-/* 3. CARD CINZA PRINCIPAL */
+/* ==========================================================================
+   3. CARD PRINCIPAL (DASHBOARD)
+   ========================================================================== */
 .cardao {
-  background-color: #e0e0e0;
+  background-color: #ffffff; /* Mudado de cinza escuro para branco para contrastar com o fundo da página */
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 32px;
   width: 100%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   margin-bottom: 30px;
 }
 
 .titulo-cardao {
-  font-size: 16px;
-  font-weight: 600;
-  color: #475569;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: none; /* Removido uppercase para um visual mais moderno */
+  letter-spacing: -0.2px;
+  margin-bottom: 24px;
 }
 
-
-#nome {
-  display: flex;
-  flex-direction: column; 
-  gap: 32px; 
+/* Substitui o antigo #nome por um Grid Responsivo (Lado a Lado) */
+.dashboard-content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
   width: 100%;
 }
 
+/* ==========================================================================
+   4. SEÇÕES INTERNAS (AGENDAMENTOS E PRODUTOS)
+   ========================================================================== */
 .sessao {
   display: flex;
   flex-direction: column; 
@@ -86,55 +42,70 @@ body {
   width: 100%; 
 }
 
-.sessao ul {
+.sessao h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+/* Configuração das Listas (Agendamento e Produtos) */
+.agendamento-lista,
+.produto-lista {
   list-style: none;
-  padding: 16px 20px;
+  padding: 20px;
   background-color: #ffffff;
   border-radius: 10px;
   border: 1px solid #edf2f7;
   display: flex;
-  flex-direction: row; /* Mantém os dados e botões na horizontal */
-  align-items: center;
-  justify-content: flex-start;
-  gap: 24px; /* Espaço uniforme entre os textos na linha */
+  flex-direction: column; /* Organiza os dados em coluna para telas menores */
+  gap: 12px;
   width: 100%;
-  flex-wrap: wrap; 
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.sessao ul:hover {
+/* Em telas maiores, os dados do agendamento voltam a ficar na horizontal */
+@media (min-width: 768px) {
+  .agendamento-lista {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.agendamento-lista:hover,
+.produto-lista:hover {
   border-color: #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .sessao ul li {
-  font-size: 13px;
+  font-size: 13.5px;
   color: #64748b;
 }
 
-/* Destaque para os nomes */
 .sessao ul li strong {
-  color: #0f172a;
-  font-weight: 600;
+  color: #334155;
+  font-weight: 500;
 }
 
-/* Alinhamento dos botões à direita na linha */
-.sessao ul .concluido {
-  margin-left: auto; /* Empurra o bloco de botões para o canto direito da linha */
+/* ==========================================================================
+   5. BOTÕES DE AÇÃO E CONTAINER
+   ========================================================================== */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
-
-/* Destaque para os nomes */
-.sessao ul li strong {
-  color: #0f172a;
-  font-weight: 600;
+/* Se estiver em modo horizontal (desktop), empurra os botões para a extrema direita */
+@media (min-width: 768px) {
+  .action-buttons {
+    margin-left: auto;
+  }
 }
 
-/* Empurra os botões da lista para a ponta direita */
-.sessao ul .concluido {
-  margin-left: auto;
-}
-
-/* 7. BOTÕES DE AÇÃO */
 .concluido,
 .remove {
   font-family: "Poppins", sans-serif;
@@ -150,19 +121,19 @@ body {
 }
 
 .concluido {
-  background-color: #0ba360;
+  background-color: #10b981; /* Atualizado para o tom de verde moderno (Emerald) */
 }
 
 .concluido:hover {
-  background-color: #098a51;
+  background-color: #059669;
 }
 
 .remove {
-  background-color: #a30b0b;
+  background-color: #ef4444; /* Atualizado para o tom de vermelho moderno (Rose) */
 }
 
 .remove:hover {
-  background-color: #8a0909;
+  background-color: #dc2626;
 }
 
 .concluido:active,
@@ -170,7 +141,9 @@ body {
   transform: scale(0.98);
 }
 
-/* 8. BOTÃO LOGIN (CANTO SUPERIOR DIREITO) */
+/* ==========================================================================
+   6. COMPONENTES EXTRA (LOGIN & ALERTAS)
+   ========================================================================== */
 #button-login {
   position: absolute;
   top: -40px;
@@ -178,7 +151,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #28a745; 
+  background-color: #10b981; 
   border: none;
   border-radius: 8px;
   width: 48px;
@@ -189,7 +162,7 @@ body {
 }
 
 #button-login:hover {
-  background-color: #218838; 
+  background-color: #059669; 
 }
 
 #button-login:active {
@@ -205,12 +178,12 @@ body {
   filter: brightness(0) invert(1); 
 }
 
-/* 9. SEÇÃO DE ALERTAS */
 .alertas-container {
   margin-top: 20px;
 }
+
 .alertas-container h3 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  color: #a30b0b;
+  color: #ef4444;
 }
