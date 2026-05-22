@@ -1,0 +1,34 @@
+import React from 'react';
+
+function FormularioCadastro() {
+  return (
+    <form onSubmit={(e) => e.preventDefault()} className="login-form">
+      <div className="input-group">
+        <span className="input-icon">
+          {/* O ícone SVG foi removido daqui */}
+        </span>
+        <input type="text" name="nome" placeholder="NOME" required />
+      </div>
+
+      <div className="input-group">
+        <span className="input-icon">
+          {/* O ícone SVG foi removido daqui */}
+        </span>
+        <input type="email" name="email" placeholder="E-MAIL" required />
+      </div>
+
+      <div className="input-group">
+        <span className="input-icon">
+          {/* O ícone SVG foi removido daqui */}
+        </span>
+        <input type="password" name="senha" placeholder="SENHA" required />
+      </div>
+
+      <button type="submit" className="btn-solid">
+        Cadastrar
+      </button>
+    </form>
+  );
+}
+
+export default FormularioCadastro;

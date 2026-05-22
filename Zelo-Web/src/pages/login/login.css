@@ -4,17 +4,20 @@
   padding: 0;
 }
 
-
 .login-screen {
   display: flex;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
   background-color: #f6f6f6;
-  font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    "Montserrat",
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   padding: 20px;
 }
-
 
 .login-card {
   display: flex;
@@ -26,7 +29,6 @@
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
-
 
 .panel-left {
   display: flex;
@@ -54,7 +56,6 @@
   margin-bottom: 35px;
 }
 
-
 .btn-outline {
   width: 150px;
   background: transparent;
@@ -72,45 +73,106 @@
 
 .btn-outline:hover {
   background-color: #ffffff;
-  color:#0ba360;
+  color: #0ba360;
 }
 
 .btn-outline:active {
   transform: scale(0.97);
 }
 
-
 .panel-right {
   display: flex;
   width: 62%;
   flex-direction: column;
   justify-content: center;
-  padding: 50px 55px;
+  padding: 40px 55px; /* Reduzido levemente o padding vertical para acomodar melhor os elementos */
 }
 
 .panel-right h1 {
   text-align: center;
-  font-size: 1.35rem;
+  font-size: 1.15rem; /* Ajustado para melhor proporção */
   font-weight: 700;
   text-transform: uppercase;
   color: #0ba360;
-  margin-bottom: 35px;
+  margin-bottom: 25px; /* Reduzido para aproximar das opções */
   letter-spacing: 0.05em;
 }
 
+/* --- SELEÇÃO DE OPÇÕES (Vendedor / Cliente) --- */
+.opcao-div {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 30px; /* Espaçamento antes do formulário começar */
+}
+
+.opcao {
+  flex: 1; /* Faz com que os dois botões dividam o espaço igualmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #ffffff; /* Fundo branco para não competir com o botão principal */
+  color: #555555; /* Texto cinza escuro legível */
+  padding: 20px;
+  border-radius: 16px; /* Bordas arredondadas modernas */
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 2px solid #e2e8f0; /* Borda cinza suave */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.opcao:hover {
+  border-color: #0ba360;
+  background-color: #fafafa;
+}
+
+/* Modificado para refletir a classe do React (ativo) */
+.opcao.ativo {
+  border-color: #0ba360;
+  background-color: rgba(11, 163, 96, 0.05); /* Fundo verde bem clarinho */
+  color: #0ba360; /* Texto ganha a cor verde */
+}
+
+/* Ajuste do tamanho e visual das imagens dentro dos seletores */
+.imgs {
+  height: 52px; /* Altura controlada para não quebrar o layout */
+  width: auto;
+  object-fit: contain;
+  opacity: 0.6; /* Deixa os ícones levemente cinzas por padrão */
+  transition: all 0.2s ease-in-out;
+}
+
+.opcao.ativo .imgs {
+  opacity: 1; /* Ícone ganha 100% de opacidade quando ativo */
+}
+
+/* --- FORMULÁRIO E INPUTS --- */
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-
 .input-group {
   display: flex;
   align-items: center;
   background-color: #f4f4f4;
   padding: 14px 18px;
-  border-radius: 4px;
+  border-radius: 12px; /* Combinando com o arredondamento dos botões (12px) */
+  border: 1.5px solid transparent; /* Preparando para o efeito de foco */
+  transition: all 0.2s ease;
+}
+
+/* Efeito visual moderno quando o usuário clica para digitar */
+.input-group:focus-within {
+  border-color: #0ba360;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(11, 163, 96, 0.04);
 }
 
 .input-icon {
@@ -118,7 +180,7 @@
   align-items: center;
   justify-content: center;
   margin-right: 16px;
-  color: #999999;
+  color: #888888; /* Contraste ligeiramente melhorado para acessibilidade */
 }
 
 .input-group input {
@@ -126,26 +188,26 @@
   background: transparent;
   border: none;
   outline: none;
-  font-size: 0.75rem;
+  font-size: 0.8rem; /* Aumentado de 0.75rem para melhorar a leitura */
   font-weight: 600;
-  letter-spacing: 0.08em;
-  color: #555555;
+  letter-spacing: 0.05em;
+  color: #333333; /* Texto digitado mais escuro para melhor legibilidade */
 }
 
 .input-group input::placeholder {
-  color: #b3b3b3;
+  color: #a3a3a3; /* Placeholders com melhor contraste */
 }
 
-
+/* --- BOTÃO PRINCIPAL (CADASTRAR) --- */
 .btn-solid {
   width: 100%;
   max-width: 270px;
-  margin: 20px auto 0 auto;
+  margin: 15px auto 0 auto;
   background-color: #0ba360;
   color: #ffffff;
-  padding: 12px 0;
-  border-radius: 12px; 
-  font-size: 0.8rem;
+  padding: 14px 0;
+  border-radius: 12px;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -155,8 +217,8 @@
 }
 
 .btn-solid:hover {
-  filter: brightness(1.04);
-  box-shadow: 0 4px 12px rgba(57, 223, 111, 0.2);
+  filter: brightness(1.05);
+  box-shadow: 0 6px 16px rgba(11, 163, 96, 0.25);
 }
 
 .btn-solid:active {
