@@ -3,7 +3,12 @@
   margin: 0;
   padding: 0;
 }
-
+h2 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 14px;
+}
 .login-screen {
   display: flex;
   min-height: 100vh;
@@ -198,7 +203,6 @@
   color: #a3a3a3; /* Placeholders com melhor contraste */
 }
 
-/* --- BOTÃO PRINCIPAL (CADASTRAR) --- */
 .btn-solid {
   width: 100%;
   max-width: 270px;
@@ -223,4 +227,26 @@
 
 .btn-solid:active {
   transform: scale(0.97);
+}
+
+.login-form h2 {
+  color: #0ba360;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 14px;
+}
+.animate-fade {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
