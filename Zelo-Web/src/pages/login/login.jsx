@@ -8,7 +8,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [cargo, setCargo] = useState("opcaoCargo");
 
-  const [nome, setNome] = useState("");
+  const  [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
@@ -28,7 +28,7 @@ export default function Login() {
           </button>
         </div>
 
-        {/* Painel de seleção inicial */}
+        
         {cargo === "opcaoCargo" && (
           <div className="panel-right animate-fade">
             <h1>Cadastre-se como:</h1>
@@ -52,11 +52,11 @@ export default function Login() {
           </div>
         )}
 
-        {/* Formulário de Cadastro do Vendedor / Cliente */}
+        
         {cargo !== "opcaoCargo" && (
           <div className="panel-right animate-fade">
             {" "}
-            {/* Ajustado para 'animate-fade' coincidir com o CSS */}
+           
             <form onSubmit={handleCadastro} className="login-form">
               <h2>Cadastro como: {cargo}</h2>
 
@@ -90,7 +90,7 @@ export default function Login() {
                 />
               </div>
 
-              <button type="submit" className="btn-solid">
+              <button type="submit" onClick={enviarDados()} className="btn-solid">
                 Cadastrar
               </button>
 
